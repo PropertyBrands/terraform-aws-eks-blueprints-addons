@@ -97,8 +97,7 @@ locals {
 ################################################################################
 
 module "argo_rollouts" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_argo_rollouts
 
@@ -141,7 +140,7 @@ module "argo_rollouts" {
   replace                    = try(var.argo_rollouts.replace, null)
   lint                       = try(var.argo_rollouts.lint, null)
 
-  postrender    = try(var.argo_rollouts.postrender, [])
+  postrender    = try(var.argo_rollouts.postrender, null)
   set           = try(var.argo_rollouts.set, [])
   set_sensitive = try(var.argo_rollouts.set_sensitive, [])
 
@@ -153,8 +152,7 @@ module "argo_rollouts" {
 ################################################################################
 
 module "argo_workflows" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_argo_workflows
 
@@ -197,7 +195,7 @@ module "argo_workflows" {
   replace                    = try(var.argo_workflows.replace, null)
   lint                       = try(var.argo_workflows.lint, null)
 
-  postrender    = try(var.argo_workflows.postrender, [])
+  postrender    = try(var.argo_workflows.postrender, null)
   set           = try(var.argo_workflows.set, [])
   set_sensitive = try(var.argo_workflows.set_sensitive, [])
 
@@ -209,8 +207,7 @@ module "argo_workflows" {
 ################################################################################
 
 module "argocd" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_argocd
 
@@ -253,7 +250,7 @@ module "argocd" {
   replace                    = try(var.argocd.replace, null)
   lint                       = try(var.argocd.lint, null)
 
-  postrender    = try(var.argocd.postrender, [])
+  postrender    = try(var.argocd.postrender, null)
   set           = try(var.argocd.set, [])
   set_sensitive = try(var.argocd.set_sensitive, [])
 
@@ -265,8 +262,7 @@ module "argocd" {
 ################################################################################
 
 module "argo_events" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_argo_events
 
@@ -309,7 +305,7 @@ module "argo_events" {
   replace                    = try(var.argo_events.replace, null)
   lint                       = try(var.argo_events.lint, null)
 
-  postrender    = try(var.argo_events.postrender, [])
+  postrender    = try(var.argo_events.postrender, null)
   set           = try(var.argo_events.set, [])
   set_sensitive = try(var.argo_events.set_sensitive, [])
 
@@ -326,8 +322,7 @@ locals {
 }
 
 module "aws_cloudwatch_metrics" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_cloudwatch_metrics
 
@@ -370,7 +365,7 @@ module "aws_cloudwatch_metrics" {
   replace                    = try(var.aws_cloudwatch_metrics.replace, null)
   lint                       = try(var.aws_cloudwatch_metrics.lint, null)
 
-  postrender = try(var.aws_cloudwatch_metrics.postrender, [])
+  postrender = try(var.aws_cloudwatch_metrics.postrender, null)
   set = concat(
     [
       {
@@ -495,8 +490,7 @@ data "aws_iam_policy_document" "aws_efs_csi_driver" {
 }
 
 module "aws_efs_csi_driver" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_efs_csi_driver
 
@@ -539,7 +533,7 @@ module "aws_efs_csi_driver" {
   replace                    = try(var.aws_efs_csi_driver.replace, null)
   lint                       = try(var.aws_efs_csi_driver.lint, null)
 
-  postrender = try(var.aws_efs_csi_driver.postrender, [])
+  postrender = try(var.aws_efs_csi_driver.postrender, null)
   set = concat([
     {
       name  = "controller.serviceAccount.name"
@@ -672,8 +666,7 @@ data "aws_iam_policy_document" "aws_for_fluentbit" {
 }
 
 module "aws_for_fluentbit" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_for_fluentbit
 
@@ -716,7 +709,7 @@ module "aws_for_fluentbit" {
   replace                    = try(var.aws_for_fluentbit.replace, null)
   lint                       = try(var.aws_for_fluentbit.lint, null)
 
-  postrender = try(var.aws_for_fluentbit.postrender, [])
+  postrender = try(var.aws_for_fluentbit.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -1068,8 +1061,7 @@ data "aws_iam_policy_document" "aws_fsx_csi_driver" {
 }
 
 module "aws_fsx_csi_driver" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_fsx_csi_driver
 
@@ -1112,7 +1104,7 @@ module "aws_fsx_csi_driver" {
   replace                    = try(var.aws_fsx_csi_driver.replace, null)
   lint                       = try(var.aws_fsx_csi_driver.lint, null)
 
-  postrender = try(var.aws_fsx_csi_driver.postrender, [])
+  postrender = try(var.aws_fsx_csi_driver.postrender, null)
   set = concat([
     {
       name  = "controller.serviceAccount.name"
@@ -1440,8 +1432,7 @@ data "aws_iam_policy_document" "aws_load_balancer_controller" {
 }
 
 module "aws_load_balancer_controller" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_load_balancer_controller
 
@@ -1485,7 +1476,7 @@ module "aws_load_balancer_controller" {
   replace                    = try(var.aws_load_balancer_controller.replace, null)
   lint                       = try(var.aws_load_balancer_controller.lint, null)
 
-  postrender = try(var.aws_load_balancer_controller.postrender, [])
+  postrender = try(var.aws_load_balancer_controller.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -1829,8 +1820,7 @@ data "aws_iam_policy_document" "aws_node_termination_handler" {
 }
 
 module "aws_node_termination_handler" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_node_termination_handler
 
@@ -1873,7 +1863,7 @@ module "aws_node_termination_handler" {
   replace                    = try(var.aws_node_termination_handler.replace, null)
   lint                       = try(var.aws_node_termination_handler.lint, null)
 
-  postrender = try(var.aws_node_termination_handler.postrender, [])
+  postrender = try(var.aws_node_termination_handler.postrender, null)
   set = concat(
     [
       {
@@ -1953,8 +1943,7 @@ data "aws_iam_policy_document" "aws_privateca_issuer" {
 }
 
 module "aws_privateca_issuer" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_privateca_issuer
 
@@ -1997,7 +1986,7 @@ module "aws_privateca_issuer" {
   replace                    = try(var.aws_privateca_issuer.replace, null)
   lint                       = try(var.aws_privateca_issuer.lint, null)
 
-  postrender = try(var.aws_privateca_issuer.postrender, [])
+  postrender = try(var.aws_privateca_issuer.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -2071,8 +2060,7 @@ data "aws_iam_policy_document" "cert_manager" {
 }
 
 module "cert_manager" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_cert_manager
 
@@ -2115,7 +2103,7 @@ module "cert_manager" {
   replace                    = try(var.cert_manager.replace, null)
   lint                       = try(var.cert_manager.lint, null)
 
-  postrender = try(var.cert_manager.postrender, [])
+  postrender = try(var.cert_manager.postrender, null)
   set = concat([
     {
       name  = "installCRDs"
@@ -2228,8 +2216,7 @@ data "aws_iam_policy_document" "cluster_autoscaler" {
 }
 
 module "cluster_autoscaler" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_cluster_autoscaler
 
@@ -2272,7 +2259,7 @@ module "cluster_autoscaler" {
   replace                    = try(var.cluster_autoscaler.replace, null)
   lint                       = try(var.cluster_autoscaler.lint, null)
 
-  postrender = try(var.cluster_autoscaler.postrender, [])
+  postrender = try(var.cluster_autoscaler.postrender, null)
   set = concat(
     [
       {
@@ -2329,8 +2316,7 @@ module "cluster_autoscaler" {
 ################################################################################
 
 module "cluster_proportional_autoscaler" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_cluster_proportional_autoscaler
 
@@ -2373,7 +2359,7 @@ module "cluster_proportional_autoscaler" {
   replace                    = try(var.cluster_proportional_autoscaler.replace, null)
   lint                       = try(var.cluster_proportional_autoscaler.lint, null)
 
-  postrender    = try(var.cluster_proportional_autoscaler.postrender, [])
+  postrender    = try(var.cluster_proportional_autoscaler.postrender, null)
   set           = try(var.cluster_proportional_autoscaler.set, [])
   set_sensitive = try(var.cluster_proportional_autoscaler.set_sensitive, [])
 
@@ -2454,8 +2440,7 @@ data "aws_iam_policy_document" "external_dns" {
 }
 
 module "external_dns" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_external_dns
 
@@ -2498,7 +2483,7 @@ module "external_dns" {
   replace                    = try(var.external_dns.replace, null)
   lint                       = try(var.external_dns.lint, null)
 
-  postrender = try(var.external_dns.postrender, [])
+  postrender = try(var.external_dns.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -2607,8 +2592,7 @@ data "aws_iam_policy_document" "external_secrets" {
 }
 
 module "external_secrets" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_external_secrets
 
@@ -2651,7 +2635,7 @@ module "external_secrets" {
   replace                    = try(var.external_secrets.replace, null)
   lint                       = try(var.external_secrets.lint, null)
 
-  postrender = try(var.external_secrets.postrender, [])
+  postrender = try(var.external_secrets.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -2857,8 +2841,7 @@ resource "kubernetes_config_map_v1" "aws_logging" {
 ################################################################################
 
 module "gatekeeper" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_gatekeeper
 
@@ -2901,7 +2884,7 @@ module "gatekeeper" {
   replace                    = try(var.gatekeeper.replace, null)
   lint                       = try(var.gatekeeper.lint, null)
 
-  postrender    = try(var.gatekeeper.postrender, [])
+  postrender    = try(var.gatekeeper.postrender, null)
   set           = try(var.gatekeeper.set, [])
   set_sensitive = try(var.gatekeeper.set_sensitive, [])
 
@@ -2913,8 +2896,7 @@ module "gatekeeper" {
 ################################################################################
 
 module "ingress_nginx" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_ingress_nginx
 
@@ -2957,7 +2939,7 @@ module "ingress_nginx" {
   replace                    = try(var.ingress_nginx.replace, null)
   lint                       = try(var.ingress_nginx.lint, null)
 
-  postrender    = try(var.ingress_nginx.postrender, [])
+  postrender    = try(var.ingress_nginx.postrender, null)
   set           = try(var.ingress_nginx.set, [])
   set_sensitive = try(var.ingress_nginx.set_sensitive, [])
 
@@ -3238,8 +3220,7 @@ resource "aws_iam_instance_profile" "karpenter" {
 }
 
 module "karpenter" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_karpenter
 
@@ -3282,7 +3263,7 @@ module "karpenter" {
   replace                    = try(var.karpenter.replace, null)
   lint                       = try(var.karpenter.lint, null)
 
-  postrender = try(var.karpenter.postrender, [])
+  postrender = try(var.karpenter.postrender, null)
   set = concat(
     [for s in local.karpenter_set : s if s.value != null],
     try(var.karpenter.set, [])
@@ -3333,8 +3314,7 @@ module "karpenter" {
 # kubectl delete crd thanosrulers.monitoring.coreos.com
 
 module "kube_prometheus_stack" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_kube_prometheus_stack
 
@@ -3377,7 +3357,7 @@ module "kube_prometheus_stack" {
   replace                    = try(var.kube_prometheus_stack.replace, null)
   lint                       = try(var.kube_prometheus_stack.lint, null)
 
-  postrender    = try(var.kube_prometheus_stack.postrender, [])
+  postrender    = try(var.kube_prometheus_stack.postrender, null)
   set           = try(var.kube_prometheus_stack.set, [])
   set_sensitive = try(var.kube_prometheus_stack.set_sensitive, [])
 
@@ -3389,8 +3369,7 @@ module "kube_prometheus_stack" {
 ################################################################################
 
 module "metrics_server" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_metrics_server
 
@@ -3433,7 +3412,7 @@ module "metrics_server" {
   replace                    = try(var.metrics_server.replace, null)
   lint                       = try(var.metrics_server.lint, null)
 
-  postrender    = try(var.metrics_server.postrender, [])
+  postrender    = try(var.metrics_server.postrender, null)
   set           = try(var.metrics_server.set, [])
   set_sensitive = try(var.metrics_server.set_sensitive, [])
 
@@ -3445,8 +3424,7 @@ module "metrics_server" {
 ################################################################################
 
 module "secrets_store_csi_driver" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_secrets_store_csi_driver
 
@@ -3489,7 +3467,7 @@ module "secrets_store_csi_driver" {
   replace                    = try(var.secrets_store_csi_driver.replace, null)
   lint                       = try(var.secrets_store_csi_driver.lint, null)
 
-  postrender    = try(var.secrets_store_csi_driver.postrender, [])
+  postrender    = try(var.secrets_store_csi_driver.postrender, null)
   set           = try(var.secrets_store_csi_driver.set, [])
   set_sensitive = try(var.secrets_store_csi_driver.set_sensitive, [])
 
@@ -3501,8 +3479,7 @@ module "secrets_store_csi_driver" {
 ################################################################################
 
 module "secrets_store_csi_driver_provider_aws" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_secrets_store_csi_driver_provider_aws
 
@@ -3545,7 +3522,7 @@ module "secrets_store_csi_driver_provider_aws" {
   replace                    = try(var.secrets_store_csi_driver_provider_aws.replace, null)
   lint                       = try(var.secrets_store_csi_driver_provider_aws.lint, null)
 
-  postrender    = try(var.secrets_store_csi_driver_provider_aws.postrender, [])
+  postrender    = try(var.secrets_store_csi_driver_provider_aws.postrender, null)
   set           = try(var.secrets_store_csi_driver_provider_aws.set, [])
   set_sensitive = try(var.secrets_store_csi_driver_provider_aws.set_sensitive, [])
 
@@ -3614,8 +3591,7 @@ data "aws_iam_policy_document" "velero" {
 }
 
 module "velero" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_velero
 
@@ -3658,7 +3634,7 @@ module "velero" {
   replace                    = try(var.velero.replace, null)
   lint                       = try(var.velero.lint, null)
 
-  postrender = try(var.velero.postrender, [])
+  postrender = try(var.velero.postrender, null)
   set = concat([
     {
       name  = "initContainers"
@@ -3736,8 +3712,7 @@ module "velero" {
 ################################################################################
 
 module "vpa" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_vpa
 
@@ -3781,7 +3756,7 @@ module "vpa" {
   replace                    = try(var.vpa.replace, null)
   lint                       = try(var.vpa.lint, null)
 
-  postrender = try(var.vpa.postrender, [])
+  postrender = try(var.vpa.postrender, null)
   set = concat([
     {
       name  = "admissionController.enabled"
@@ -3829,8 +3804,7 @@ data "aws_iam_policy_document" "aws_gateway_api_controller" {
 }
 
 module "aws_gateway_api_controller" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_aws_gateway_api_controller
 
@@ -3873,7 +3847,7 @@ module "aws_gateway_api_controller" {
   replace                    = try(var.aws_gateway_api_controller.replace, null)
   lint                       = try(var.aws_gateway_api_controller.lint, null)
 
-  postrender = try(var.aws_gateway_api_controller.postrender, [])
+  postrender = try(var.aws_gateway_api_controller.postrender, null)
   set = concat([
     {
       name  = "serviceAccount.name"
@@ -3926,8 +3900,7 @@ locals {
 }
 
 module "bottlerocket_shadow" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "~> 1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_bottlerocket_update_operator
 
@@ -3968,7 +3941,7 @@ module "bottlerocket_shadow" {
   replace                    = try(var.bottlerocket_shadow.replace, null)
   lint                       = try(var.bottlerocket_shadow.lint, null)
 
-  postrender    = try(var.bottlerocket_shadow.postrender, [])
+  postrender    = try(var.bottlerocket_shadow.postrender, null)
   set           = try(var.bottlerocket_shadow.set, [])
   set_sensitive = try(var.bottlerocket_shadow.set_sensitive, [])
 
@@ -3978,8 +3951,7 @@ module "bottlerocket_shadow" {
 }
 
 module "bottlerocket_update_operator" {
-  source  = "aws-ia/eks-blueprints-addon/aws"
-  version = "~> 1.1.1"
+  source = "git@github.com:PropertyBrands/terraform-aws-eks-blueprints-addon.git//?ref=v1.2.0"
 
   create = var.enable_bottlerocket_update_operator
 
@@ -4022,7 +3994,7 @@ module "bottlerocket_update_operator" {
   replace                    = try(var.bottlerocket_update_operator.replace, null)
   lint                       = try(var.bottlerocket_update_operator.lint, null)
 
-  postrender    = try(var.bottlerocket_update_operator.postrender, [])
+  postrender    = try(var.bottlerocket_update_operator.postrender, null)
   set           = try(var.bottlerocket_update_operator.set, [])
   set_sensitive = try(var.bottlerocket_update_operator.set_sensitive, [])
 
